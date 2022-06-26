@@ -1,4 +1,5 @@
 import os
+import re
 import numpy as np
 from nltk.corpus import wordnet as wn
 
@@ -13,11 +14,12 @@ def del_repeated_file(file_path):
     if(os.path.exists(file_path) == True):
         os.remove(file_path)
 
-# 生成wnids.txt
-i = 0
 del_repeated_file(wnids_path)
 del_repeated_file(wlst_tmp_path)
+del_repeated_file(wlst_path)
 
+# 生成wnids.txt
+i = 0
 for key in order_dict:
     i = i + 1
     value = order_dict[key]
@@ -48,7 +50,6 @@ with open(wlst_tmp_path) as txt:
             file.write(str(label_1)+"\n")
 
 # 替换' '为'_'
-import re
 f = open(wlst_path,'r')
 alllines = f.readlines()
 f.close()
@@ -58,7 +59,7 @@ for eachline in alllines:
     f.writelines(a)
 f.close()
 
-print("Finished!")
+print("Generate mini_wordlist.txt!")
 
 # 构建词典
 with open(words_path) as words:

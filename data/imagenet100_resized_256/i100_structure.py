@@ -1,18 +1,21 @@
 import os
+import re
 import numpy as np
 from nltk.corpus import wordnet as wn
 
-imagenet100_path = '../data/imagenet100_resized_256/data'
+imagenet100_path = './data'
+wnids_path = "./data/wnids.txt"
+words_path = "./data/words.txt"
+wlst_tmp_path = './data/i100_wordlist_tmp.txt'
+wlst_path = './data/i100_wordlist.txt'
 
-def del_repeated_file(save_path):
-    if(os.path.exists(save_path) == True):
-        os.remove(save_path)
+def del_repeated_file(path):
+    if(os.path.exists(path) == True):
+        os.remove(path)
 
 # 生成并处理 i100_wordlist_tmp.txt
-wnids_path = "./wnids.txt"
-words_path = "./words.txt"
-save_path = './i100_wordlist_tmp.txt'
-del_repeated_file(save_path)
+del_repeated_file(wlst_tmp_path)
+del_repeated_file(wlst_path)
 
 with open(wnids_path) as txt:
     for line in txt:
@@ -22,33 +25,37 @@ with open(wnids_path) as txt:
                 idx_1 = dic_line.strip('\n').split('\t')[0]
                 idx_2 = dic_line.strip('\n').split('\t')[1]
                 if idx_1 == label:
-                    with open(save_path, "a") as file:
+                    with open(wlst_tmp_path, "a") as file:
                         file.write(str(idx_2)+"\n")
 print("Generate i100_wordlist_tmp!")
 
-
 # 处理 i100_wordlist_tmp.txt，删除每行逗号后的文字
-load_path = './i100_wordlist_tmp.txt'
-save_path = './i100_wordlist.txt'
-del_repeated_file(save_path)
-
-with open(load_path) as txt:
+with open(wlst_tmp_path) as txt:
     for line in txt:
         label_1 = line.strip('\n').split(',')[0]
-        with open(save_path, "a") as file:
+        with open(wlst_path, "a") as file:
             file.write(str(label_1)+"\n")
+
+# 替换' '为'_'
+f = open(wlst_path,'r')
+alllines = f.readlines()
+f.close()
+f = open(wlst_path,'w+')
+for eachline in alllines:
+    a=re.sub(' ', '_', eachline)
+    f.writelines(a)
+f.close()
+
 print("Generate i100_wordlist!")
 
-
 # 获取上位词直到顶端
-
 # 构建词典
-with open(imagenet100_path + '/words.txt') as words:
+with open(words_path) as words:
     netdict = {}
     for line in words:
         netdict[line.strip('\n').split('\t')[1]] = line.strip('\n').split('\t')[0]
 
-with open(imagenet100_path + '/words.txt') as words:
+with open(words_path) as words:
     netdictmore = {}
     for line in words:
         for sub in line.strip('\n').split('\t')[1].split(", "):
@@ -59,14 +66,14 @@ print("dicts have been built")
 # 获得全部label
 all_labels = []
 all_words = []
-with open(imagenet100_path + '/wnids.txt') as wnid:
+with open(wnids_path) as wnid:
     print("read wnids...")
     for line in wnid:
         all_labels.append(line.strip('\n'))
     print(len(all_labels))  #一共有100个分类
     
 # 获得全部label对应的单词
-with open(imagenet100_path + '/i100_wordlist.txt') as wordlist:
+with open(wlst_path) as wordlist:
     print("read wordlist...")
     for line in wordlist:
         all_words.append(line.strip('\n'))

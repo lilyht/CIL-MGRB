@@ -1,6 +1,6 @@
 # Multi-Granularity Regularized Re-Balancing for Class Incremental Learning
 
-This repository provides a demo of MGRB.
+This repository provides a demo of MGRB.  The component of multi-granularity regularization term can be found in `cal_MG.py`. 
 
 ### Environment
 
@@ -12,7 +12,9 @@ This repository provides a demo of MGRB.
 
 ### Requirement
 
-See `requirements.txt` for details
++ See `requirements.txt` for environment.
+
++ The pre-trained word vector library can be found [here](https://code.google.com/archive/p/word2vec/), and the library used in this paper can be downloaded [here](https://drive.google.com/file/d/1xZEbpkDXZF_rlH9hBIq-WE_RQ5sNg3hp/view?usp=sharing).
 
 
 
@@ -25,6 +27,6 @@ See `requirements.txt` for details
     ├── parser.py           # add parameters
     ├── loss.py             # return loss
     ├── cal_MG.py           # calculate the multi-granularity regularization term
-    ├── util.py             # 工具函数
+    ├── util.py             
     └── ...
 ```
