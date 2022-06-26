@@ -14,7 +14,7 @@ This repository provides a demo of MGRB.  The component of multi-granularity reg
 
 + See `requirements.txt` for environment.
 
-+ The pre-trained word vector library can be found [here](https://code.google.com/archive/p/word2vec/), and the library used in this paper can be downloaded [here](https://drive.google.com/file/d/1xZEbpkDXZF_rlH9hBIq-WE_RQ5sNg3hp/view?usp=sharing).
++ The pre-trained word vector library can be found [here](https://code.google.com/archive/p/word2vec/). You can download it or download the library used in this paper [here](https://drive.google.com/file/d/1xZEbpkDXZF_rlH9hBIq-WE_RQ5sNg3hp/view?usp=sharing).
 
 
 
