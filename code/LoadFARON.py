@@ -49,16 +49,7 @@ def FaultDataset2d_load_data(args, modeltype, inc_idx):
     datainfopath = './save/FARON_divide_info_{}_{}.npy'.format(args.n, args.m)
     datainfo = np.load(datainfopath, allow_pickle=True)
     order = datainfo.item()["order"]
-    label_map = datainfo.item()["label_map"]
     test_num_lst = datainfo.item()["test_num"]
-    id2clsname = datainfo.item()["id2clsname"]
-    clsname2id = datainfo.item()["clsname2id"]
-
-    print("order", order)
-    print("label_map", label_map)
-    print("test_num_lst", test_num_lst)
-    print("id2clsname", id2clsname)
-    print("clsname2id", clsname2id)
 
     numinfopath = "./save/FARON_num_info_{}_{}.npy".format(args.n, args.m)
     num_info = np.load(numinfopath, allow_pickle=True)
@@ -145,7 +136,7 @@ def FaultDataset2d_load_data(args, modeltype, inc_idx):
             # print("k:", k, "train_label_T[k][0]:", train_label_T[k][0])
             if train_label_T[k][0] in od[0:test_num_lst[inc_idx]]:
 
-                print("exemplar_num:", exemplar_num, ", count[train_label_T[k][0]:", count[train_label_T[k][0]])
+                # print("exemplar_num:", exemplar_num, ", count[train_label_T[k][0]:", count[train_label_T[k][0]])
                 if count[train_label_T[k][0]] < exemplar_num:
                     # there are few samples in this class and cannot reach the average
                     print("class {} not enough, load {} sample instead...".format(train_label_T[k][0], count[

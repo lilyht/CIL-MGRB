@@ -69,9 +69,12 @@ def get_structure(args):
     if args.cluster == -2:  # for miniimagenet and imagenet100
         print("using WordNet tree structure")
     elif args.cluster == -1:
-        print("using original hierarchy (such as cifar100)")
+        print("using original hierarchy")
     else:
-        print("using semantic or visual information to generate tree structure({} clusters)".format(args.cluster))
+        if args.vis_hier:
+            print("using visual information to generate tree structure({} clusters)".format(args.cluster))
+        else:
+            print("using semantic information to generate tree structure({} clusters)".format(args.cluster))
     return classes, datainfopath, nodepathinfo
 
 
@@ -290,18 +293,13 @@ def get_trainparameter(args):
         milestones = [70, 140, 210]
         epoch_1 = 250
         epoch_2 = 40
-        epoch_1 = 2
-        epoch_2 = 2
 
     elif args.ds == 'cifar10':
         totalclasses = 10
         milestones = [70, 140, 210]
         # milestones = [80, 140, 180]
-
         epoch_1 = 200
         epoch_2 = 40
-        epoch_1 = 2
-        epoch_2 = 2
 
     elif args.ds == 'FARON':
         totalclasses = 66
@@ -318,8 +316,6 @@ def get_trainparameter(args):
         milestones = [100, 120]
         epoch_1 = 160
         epoch_2 = 30
-        epoch_1 = 2
-        epoch_2 = 2
 
     elif args.ds == 'imagenet100':
         totalclasses = 100
@@ -334,10 +330,10 @@ def get_trainparameter(args):
         lamdalst.append((args.n + args.m * it) / (args.n + args.m * (it + 1)))
 
     print("--------------------------------------------------")
-    print("{0:15}{1:15}".format("epoch_1", str(epoch_1)))
-    print("{0:15}{1:15}".format("epoch_2", str(epoch_2)))
-    print("{0:15}{1:15}".format("milestones", str(milestones)))
-    print("{0:15}{1:15}".format("group", str(group)))
+    print("{0:25}{1:15}".format("epoch_1", str(epoch_1)))
+    print("{0:25}{1:15}".format("epoch_2", str(epoch_2)))
+    print("{0:25}{1:15}".format("milestones", str(milestones)))
+    print("{0:25}{1:15}".format("group", str(group)))
     print("--------------------------------------------------")
     return totalclasses, lamdalst, milestones, epoch_1, epoch_2, group
 
@@ -366,8 +362,6 @@ def get_trainoptim(args, milestones, net_t, clsnet):
         optimizer = optim.Adam(net_t.parameters(), lr=args.lr)
         clsoptimizer = optim.Adam(clsnet.parameters(), lr=args.lr)
     else:
-        # optimizer = optim.SGD(net_t.parameters(), lr=args.lr, momentum=0.9,weight_decay=5e-4)
-        # clsoptimizer = optim.SGD(clsnet.parameters(), lr=args.lr, momentum=0.9,weight_decay=5e-4)
         optimizer = optim.AdamW(net_t.parameters(), lr=args.lr, weight_decay=0.05)
         clsoptimizer = optim.AdamW(clsnet.parameters(), lr=args.lr, weight_decay=0.05)
 
@@ -410,7 +404,6 @@ def get_valid_dataset(args, inc_idx):
 
 
 def get_dataset(args, inc_idx, modeltype='old'):
-    print("dataset: {}".format(args.ds))
     if args.ds == 'cifar10':
         return split_cifar10_dataset_load_batch(args, inc_idx)
     elif args.ds == 'cifar100':
