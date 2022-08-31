@@ -6,7 +6,7 @@ Data imbalance between old and new classes is a key issue that leads to performa
 
 
 
-![model_v9](E:\研究生\论文\MGRB\arxiv版本\model_v9.png)
+![model_v9](./img/model_v9.png)
 
 
 
@@ -41,3 +41,14 @@ Data imbalance between old and new classes is a key issue that leads to performa
 
 
 If you use this paper/code in your research, please consider citing us:
+
+~~~txt
+@article{chen2022multi,
+  title={Multi-Granularity Regularized Re-Balancing for Class Incremental Learning},
+  author={Chen, Huitong and Wang, Yu and Hu, Qinghua},
+  journal={IEEE Transactions on Knowledge and Data Engineering},
+  year={2022},
+  publisher={IEEE}
+}
+~~~
+

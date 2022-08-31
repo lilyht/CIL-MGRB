@@ -67,3 +67,14 @@ Furthermore several commands are available to reproduce the experiments showcase
 
 
 If you use this paper/code in your research, please consider citing us:
+
+~~~txt
+@article{chen2022multi,
+  title={Multi-Granularity Regularized Re-Balancing for Class Incremental Learning},
+  author={Chen, Huitong and Wang, Yu and Hu, Qinghua},
+  journal={IEEE Transactions on Knowledge and Data Engineering},
+  year={2022},
+  publisher={IEEE}
+}
+~~~
+
