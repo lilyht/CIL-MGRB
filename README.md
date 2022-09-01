@@ -27,7 +27,7 @@ Data imbalance between old and new classes is a key issue that leads to performa
 
 ### Results
 
-The following are the experimental results on the CIFAR100 dataset：
+The experimental results on the CIFAR100 are as follows：
 
 <table>
     <tr>
@@ -102,6 +102,10 @@ The `code` folder provides the complete code for MGRB.
 If you use this paper/code in your research, please consider citing us:
 
 ~~~txt
+H. Chen, Y. Wang and Q. Hu, "Multi-Granularity Regularized Re-Balancing for Class Incremental Learning," in IEEE Transactions on Knowledge and Data Engineering, 2022, doi: 10.1109/TKDE.2022.3188335.
+~~~
+
+~~~txt
 @ARTICLE{9815145,
   author={Chen, Huitong and Wang, Yu and Hu, Qinghua},
   journal={IEEE Transactions on Knowledge and Data Engineering}, 
@@ -113,7 +117,5 @@ If you use this paper/code in your research, please consider citing us:
   doi={10.1109/TKDE.2022.3188335}}
 ~~~
 
-~~~txt
-H. Chen, Y. Wang and Q. Hu, "Multi-Granularity Regularized Re-Balancing for Class Incremental Learning," in IEEE Transactions on Knowledge and Data Engineering, 2022, doi: 10.1109/TKDE.2022.3188335.
-~~~
+
 

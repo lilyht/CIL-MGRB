@@ -69,6 +69,10 @@ Furthermore several commands are available to reproduce the experiments showcase
 If you use this paper/code in your research, please consider citing us:
 
 ~~~txt
+H. Chen, Y. Wang and Q. Hu, "Multi-Granularity Regularized Re-Balancing for Class Incremental Learning," in IEEE Transactions on Knowledge and Data Engineering, 2022, doi: 10.1109/TKDE.2022.3188335.
+~~~
+
+~~~txt
 @ARTICLE{9815145,
   author={Chen, Huitong and Wang, Yu and Hu, Qinghua},
   journal={IEEE Transactions on Knowledge and Data Engineering}, 
@@ -80,7 +84,5 @@ If you use this paper/code in your research, please consider citing us:
   doi={10.1109/TKDE.2022.3188335}}
 ~~~
 
-~~~txt
-H. Chen, Y. Wang and Q. Hu, "Multi-Granularity Regularized Re-Balancing for Class Incremental Learning," in IEEE Transactions on Knowledge and Data Engineering, 2022, doi: 10.1109/TKDE.2022.3188335.
-~~~
+
 
