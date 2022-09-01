@@ -94,7 +94,7 @@ The `code` folder provides the complete code for MGRB.
     ├── model.py            # network
     ├── cal_MG.py           # calculate the multi-granularity regularization term
     ├── cal_RB.py           # calculate the weight for class re-balancing loss
-    └──  util.py        # data split
+    └── util.py
 ```
 
 ### Citation
