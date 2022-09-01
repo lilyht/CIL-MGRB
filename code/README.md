@@ -1,6 +1,6 @@
 # Multi-Granularity Regularized Re-Balancing for Class Incremental Learning
 
- 
+ ### Instructions
 
 #### Step1: Split the dataset and generate the file
 
@@ -64,17 +64,23 @@ python -u etrain.py -ds miniimagenet -net resnet -n 50 -m 10 -bs 128 -gpu 0 -lr 
 
 Furthermore several commands are available to reproduce the experiments showcased in the paper. Please see the file `./code/run.sh`.
 
-
+### Citation
 
 If you use this paper/code in your research, please consider citing us:
 
 ~~~txt
-@article{chen2022multi,
-  title={Multi-Granularity Regularized Re-Balancing for Class Incremental Learning},
+@ARTICLE{9815145,
   author={Chen, Huitong and Wang, Yu and Hu, Qinghua},
-  journal={IEEE Transactions on Knowledge and Data Engineering},
+  journal={IEEE Transactions on Knowledge and Data Engineering}, 
+  title={Multi-Granularity Regularized Re-Balancing for Class Incremental Learning}, 
   year={2022},
-  publisher={IEEE}
-}
+  volume={},
+  number={},
+  pages={1-15},
+  doi={10.1109/TKDE.2022.3188335}}
+~~~
+
+~~~txt
+H. Chen, Y. Wang and Q. Hu, "Multi-Granularity Regularized Re-Balancing for Class Incremental Learning," in IEEE Transactions on Knowledge and Data Engineering, 2022, doi: 10.1109/TKDE.2022.3188335.
 ~~~
 
